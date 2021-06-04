@@ -1,0 +1,23 @@
+# action.yml
+name: "Update CloudFront Distribution Origin"
+description: "Update CloudFront Distribution Origin"
+inputs:
+  distribution-id: # id of input
+    description: "CloudFront Distribution Id"
+    required: true
+  s3-origin-path: # id of input
+    description: "New S3 Origin Path"
+    required: true
+  origin-index: # id of input
+    description: "Origin Index"
+    required: true
+outputs:
+  time: # id of output
+    description: "The time we greeted you"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ distribution-id }}
+    - ${{ s3-origin-path }}
+    - ${{ origin-index}}
